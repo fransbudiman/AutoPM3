@@ -368,6 +368,12 @@ def table_extraction_n_sqlQA(current_paper_tables, model_name, query_variant_lis
                             continue
 
                         if result0 is not None:
+                            print(f"\n[DEBUG] LLM Response for table {current_table}:")
+                            print(f"Question: {q0}")
+                            print(f"Result type: {type(result0['result'])}")
+                            print(f"Result content: {repr(result0['result'])}")
+                            print(f"Result stripped: {repr(result0['result'].strip())}")
+                            print("="*80)
                             r0_list = ast.literal_eval(result0["result"].strip())[0]
                             try:
                                 r0_list = list(map(lambda x: x[1] + str(r0_list[:x[0]].count(x[1]) + 1) if r0_list.count(x[1]) > 1 else x[1], enumerate(r0_list)))
