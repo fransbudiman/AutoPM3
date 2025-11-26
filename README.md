@@ -118,3 +118,15 @@ python AutoPM3_main.py
 
 ## TODO
 * A fast set up for AutoPM3.
+
+## For Frans!
+When running in Trillium you need:
+* module load arrow first before activating env
+* pip3 install -r requirements_trillium.txt
+* activate the py311 env to use python 311
+* then export path of bin/ollama and source bashrc so that system knows "ollama"
+* Might need to open a compute node (or maybe not?)
+* open a tmux and ollama serve in it, then detach
+* ollama create if first time and check models with ollama list
+* download xml using wget -O [pmid].xml "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_xml/{pmid}/unicode"
+* python AutoPM3_main.py --query_variant "[variant]" --paper_path [pmid].xml --model_name_text llama3_loraFT-8b-f16
