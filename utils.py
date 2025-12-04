@@ -146,6 +146,10 @@ def extractTablesFromXML(XML_path):
     with biocxml.iterparse(XML_path) as reader:
         for document in reader:
             for i in range(len(document.passages)):
+
+                # debugging prints
+                print("passage type:",document.passages[i].infons['type'])
+                
                 if(document.passages[i].infons['type']!='table'):
                     continue
                 cur_table_xml = document.passages[i].infons['xml']
